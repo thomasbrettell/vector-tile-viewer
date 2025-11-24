@@ -43,7 +43,11 @@
     </form>
   </div>
 
-  <Viewer {tile} />
+  {#if tile}
+    {#key tile}
+      <Viewer {tile} />
+    {/key}
+  {/if}
 </div>
 
 <style lang="scss">
