@@ -10,13 +10,12 @@
 <script lang="ts">
   import type { VectorTileFeature } from "@mapbox/vector-tile";
 
-  let { feature }: { feature: VectorTileFeature } = $props();
+  let { feature, color }: { feature: VectorTileFeature; color: string } =
+    $props();
 
   let type = types[feature.type];
 
   let geometries = feature.loadGeometry();
-
-  const color = `rgb(${255 * Math.random()}, ${255 * Math.random()}, ${255 * Math.random()})`;
 </script>
 
 {#if type === "Polygon"}
@@ -31,7 +30,7 @@
       return prev;
     }, "")}
 
-    <path fill={"blue"} {d} />
+    <path fill={color} {d} />
   {/each}
 {:else if type === "LineString"}
   {#each geometries as geom}
@@ -45,7 +44,7 @@
       return prev;
     }, "")}
 
-    <path stroke={"green"} stroke-width={10} fill="none" {d} />
+    <path stroke={color} stroke-width={10} fill="none" {d} />
   {/each}
 {:else if type === "Point"}
   {#each geometries as geom}
@@ -55,8 +54,8 @@
         cy={point.y}
         r="20"
         fill-opacity={0.35}
-        stroke="red"
-        fill="red"
+        stroke={color}
+        fill={color}
         stroke-width={4}
       />
     {/each}
