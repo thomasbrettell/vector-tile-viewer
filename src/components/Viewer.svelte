@@ -7,10 +7,6 @@
   let width = $state<number>();
   let height = $state<number>();
   let size = $derived(width && height ? Math.min(width, height) : null);
-
-  $effect(() => {
-    console.log(tile);
-  });
 </script>
 
 <div class="wrapper">
