@@ -19,7 +19,7 @@
     tile = new VectorTile(pbf);
   };
 
-  const submitHandler = async (e: SubmitEvent) => {
+  const submitHandler = (e: SubmitEvent) => {
     e.preventDefault();
 
     loadTile(url);
@@ -32,8 +32,11 @@
 
 <div class="app">
   <div class="info">
-    <h1>MVT Tile Viewer</h1>
-    <p>Enter a url of an .mvt file to get a preview of what it looks like.</p>
+    <h1>Vector Tile Viewer</h1>
+    <p>
+      Enter a url of a vector tile file (.mvt, .pbf etc) to get a preview of
+      what it looks like.
+    </p>
     <form onsubmit={submitHandler}>
       <input bind:value={url} placeholder="enter url to mvt file" />
       <button>Enter</button>

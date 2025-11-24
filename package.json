@@ -1,5 +1,5 @@
 {
-  "name": "mvt-viewer",
+  "name": "vector-tile-viewer",
   "private": true,
   "version": "0.0.0",
   "type": "module",
